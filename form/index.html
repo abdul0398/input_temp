@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0px;
+        margin: 0px;
+        box-sizing: border-box;
+        font-family: Poppins, Sans-serif;
+        color: white;
+      }
+
+      body {
+        height: 100vh;
+        width: 100vw;
+        background-color: #3e6aa2;
+      }
+      .hidden {
+        display: none;
+      }
+      input:focus {
+        outline: none;
+      }
+      input,
+      select {
+        color: black;
+      }
+      .btn-container {
+        width: 50%; 
+        display: flex; 
+        margin-top: 20px
+      }
+
+      .heading {
+        font-size: 40px; 
+        font-weight: 600
+      }
+
+      .bg-green {
+        background-color: green;
+        border: 1px solid white;
+        color: white;
+      }
+      .bg-white {
+        background-color: white;
+        border: 1px solid white;
+        color: black;
+      }
+
+      .error {
+        color: red;
+        font-size: 14px;
+      }
+      @media only screen and (max-width: 600px) {
+        .heading {
+          font-size: 25px;
+          text-align: center;
+        }
+        .btn-container {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div
+      style="
+        width: 100vw;
+        /* height: 100vh; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: auto;
+        padding-top: 100px;
+      "
+    >
+      <div style="max-width: 700px; margin-bottom: 300px; padding: 0px 20px">
+        <div>
+          <h1 class="heading">
+            Singapore New Landed Homes
+          </h1>
+        </div>
+        <div style="margin: 20px 0px">
+          <p style="font-size: 25px; font-weight: 600">
+            Property Valuation Search
+          </p>
+        </div>
+        <div>
+          <p style="font-size: 18px">
+            Get an instant indicative property valuation by entering the address
+            of the property or search using keywords.
+          </p>
+        </div>
+
+        <div style="display: flex; margin-top: 20px; align-items: center">
+          <div
+            class="step-one-circle bg-white"
+            style="
+              border-radius: 50%;
+              width: 25px;
+              aspect-ratio: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            1
+          </div>
+          <div style="width: 100%; margin: 0px 10px">
+            <hr style="border-top: 0px; color: white" />
+          </div>
+          <div
+            class="step-two-circle"
+            style="
+              border-radius: 50%;
+              border: 1px solid white;
+              color: white;
+              background-color: #046bd2;
+              width: 25px;
+              aspect-ratio: 1;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            "
+          >
+            2
+          </div>
+        </div>
+
+        <!-- PART ONE -->
+        <div class="part-one">
+          <div style="margin-top: 20px">
+            <div style="width: 100%; height: 55px">
+              <input
+                required
+                class="postal-code"
+                type="text"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 5px;
+                  border: none;
+                  padding: 2px 15px;
+                  background-color: #d9e2ed;
+                "
+                placeholder="Property Postal Code"
+              />
+              <p class="error error-postalCode"></p>
+            </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px">
+              <select
+                class="property-type"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  padding: 2px 15px;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #d9e2ed;
+                "
+              >
+                <option value="Property Type" disabled selected>
+                  Property Type
+                </option>
+                <option value="HDB">HDB</option>
+                <option value="Apartment/ Condominium/ Executive Condominium">
+                  Apartment/ Condominium/ Executive Condominium
+                </option>
+                <option value="Strata Landed">Strata Landed</option>
+                <option value="Landed">Landed</option>
+                <option value="Walk-up Apartment">Walk-up Apartment</option>
+                <option value=""></option>
+              </select>
+              <p class="error error-propertyType"></p>
+            </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px">
+              <input
+                class="unit-number"
+                type="text"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  padding: 2px 15px;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #d9e2ed;
+                "
+                placeholder="Unit Number"
+              />
+              <p class="error error-unitNumber"></p>
+            </div>
+          </div>
+
+          <div>
+            <p style="margin-top: 20px">
+              The information and valuations published here are based upon
+              certain assumptions and analysis of information / data available
+              as at the date of publication, which are subject to change at any
+              time without notice. The information and valuations published here
+              are indicative only, and do not constitute a formal valuation by a
+              licensed appraiser. These valuations may vary from those available
+              from other sources as different parties may use different
+              assumptions, risks and methods.
+            </p>
+
+            <p style="margin-top: 20px">
+              United Overseas Bank Limited ("UOB") and CKS Property Consultants
+              Pte Ltd ("CKS") do not represent or warrant the accuracy or
+              completeness of the information and valuations contained herein.
+              Neither UOB nor CKS shall be liable for any loss or damage
+              howsoever arising as a result of any person acting or refraining
+              from acting in reliance on any information or valuation contained
+              herein.
+            </p>
+            <p style="margin-top: 20px">
+              If you are applying for a UOB Property Loan, please note that the
+              terms and conditions for a UOB Property Loan (including the
+              requirement for a formal property valuation) will apply.
+            </p>
+          </div>
+
+          <div style="margin-top: 20px">
+            <p>Powered by CKS Property Consultants</p>
+            <div style="margin-top: 15px">
+              <button
+                class="get-valuation-btn"
+                style="
+                  width: 300px;
+                  cursor: pointer;
+                  height: 45px;
+                  background-color: #4e6cf2;
+                  border: none;
+                  color: white;
+                  font-size: 16px;
+                  font-weight: 600;
+                "
+              >
+                Get Valuation
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- PART TWO -->
+        <div class="part-two hidden">
+          <div style="margin-top: 20px">
+            <div style="width: 100%; height: 55px">
+              <input
+                class="name"
+                type="text"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 5px;
+                  border: none;
+                  padding: 2px 15px;
+                  background-color: #d9e2ed;
+                "
+                placeholder="Full Name (as per NRIC or Passport)"
+              />
+              <p class="error error-name"></p>
+            </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px">
+              <input
+                class="email"
+                type="text"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  border-radius: 5px;
+                  border: none;
+                  padding: 2px 15px;
+                  background-color: #d9e2ed;
+                "
+                placeholder="Email Address"
+              />
+              <p class="error error-email"></p>
+            </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px">
+              <div
+                style="
+                  display: flex;
+                  width: 100%;
+                  height: 100%;
+                  background-color: #d9e2ed;
+                  border-radius: 5px;
+                  padding: 2px 15px;
+                "
+              >
+                <div
+                  style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 50px;
+                    height: 100%;
+                  "
+                >
+                  <img src="flag.png" alt="" style="width: 60px" />
+                </div>
+                <input
+                  class="phone"
+                  type="number"
+                  style="
+                    background-color: transparent;
+                    font-size: 16px;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 5px;
+                    border: none;
+                    padding: 2px 15px;
+                  "
+                  placeholder="Mobile Number"
+                />
+              </div>
+              <p class="error error-phone"></p>
+            </div>
+          </div>
+          <div class="btn-container" >
+            <div style="width: 50%">
+              <button
+                class="previous"
+                style="
+                  cursor: pointer;
+                  width: 100%;
+                  height: 45px;
+                  border: none;
+                  background-color: #ffffff;
+                  color: #4e6cf2;
+                  font-size: 15px;
+                "
+              >
+                Previous
+              </button>
+            </div>
+            <div style="width: 50%">
+              <button
+                class="submit-btn"
+                style="
+                  cursor: pointer;
+                  width: 100%;
+                  height: 45px;
+                  border: none;
+                  background-color: #4e6cf2;
+                  color: white;
+                  font-size: 15px;
+                "
+              >
+                Get Valuation
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <form action=""></form>
+    </div>
+  </body>
+
+  <script>
+    const partOne = document.querySelector(".part-one");
+    const partTwo = document.querySelector(".part-two");
+    const getValuation = document.querySelector(".get-valuation-btn");
+    const previous = document.querySelector(".previous");
+    const stepOneCircle = document.querySelector(".step-one-circle");
+    const stepTwoCircle = document.querySelector(".step-two-circle");
+    const submitBtn = document.querySelector(".submit-btn");
+
+    getValuation.addEventListener("click", () => {
+      if (!validateStepOne()) {
+        return;
+      }
+      stepOneCircle.classList.add("bg-green");
+      stepOneCircle.classList.remove("bg-white");
+      partOne.classList.add("hidden");
+      partTwo.classList.remove("hidden");
+    });
+
+    previous.addEventListener("click", () => {
+      stepOneCircle.classList.remove("bg-green");
+      stepOneCircle.classList.add("bg-white");
+      partOne.classList.remove("hidden");
+      partTwo.classList.add("hidden");
+    });
+
+    submitBtn.addEventListener("click", () => {
+      if (!validateStepTwo()) {
+        return;
+      }
+      alert("valuation submitted");
+    });
+
+    function validateStepOne() {
+      const errors = {};
+
+      const error_paras = document.querySelectorAll(".error");
+      error_paras.forEach((error_para) => (error_para.innerHTML = ""));
+
+      const postalCode = document.querySelector(".postal-code").value;
+      const propertyType = document.querySelector(".property-type").value;
+      const unitNumber = document.querySelector(".unit-number").value;
+
+      const regex = /^[0-9]{6}$/;
+      if (!regex.test(postalCode)) {
+        errors.postalCode = "Please enter a valid postal code";
+      }
+
+      console.log(postalCode, propertyType, unitNumber);
+
+      // property type should be selected
+      if (propertyType == "Property Type") {
+        errors.propertyType = "Please select a property type";
+      }
+
+      // unit number should be a number
+      if (unitNumber == "" || isNaN(unitNumber)) {
+        errors.unitNumber = "Please enter a valid unit number";
+      }
+
+      if (Object.keys(errors).length > 0) {
+        Object.keys(errors).forEach((key) => {
+          document.querySelector(`.error-${key}`).innerHTML = errors[key];
+        });
+        return false;
+      } else {
+        return true;
+      }
+    }
+
+    function validateStepTwo() {
+      const errors = {};
+      const error_paras = document.querySelectorAll(".error");
+      error_paras.forEach((error_para) => (error_para.innerHTML = ""));
+
+      const fullName = document.querySelector(".name").value;
+      const email = document.querySelector(".email").value;
+      const mobileNumber = document.querySelector(".phone").value;
+
+      // full name should be at least 2 characters
+      if (fullName.length < 2) {
+        errors.name = "Please enter a valid full name";
+      }
+
+      // email should be a valid email
+      if (!isValidEmail(email)) {
+        errors.email = "Please enter a valid email";
+      }
+
+      // mobile number should be a valid mobile number
+      if (!isValidMobileNumber(mobileNumber)) {
+        errors.phone = "Please enter a valid mobile number";
+      }
+
+      if (Object.keys(errors).length > 0) {
+        Object.keys(errors).forEach((key) => {
+          document.querySelector(`.error-${key}`).innerHTML = errors[key];
+        });
+        return false;
+      }
+      return true;
+    }
+
+    function isValidEmail(email) {
+      const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return regex.test(email);
+    }
+
+    function isValidMobileNumber(mobileNumber) {
+      const regex = /^[0-9]{8}$/;
+      return regex.test(mobileNumber);
+    }
+  </script>
+</html>
