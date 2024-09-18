@@ -484,13 +484,8 @@
     function fillPostalFromParams() {
       const params = new URLSearchParams(window.location.search);
       const address = params.get("address");
-      const regex = /[0-9]{6}/;
       if(address){
-        let postalCode = address.match(regex);
-        if(postalCode){
-          postalCode = postalCode[0];
-        }
-        document.querySelector(".postal-code").value = postalCode;
+        document.querySelector(".postal-code").value = address;
       }
     }
   </script>
