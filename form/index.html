@@ -409,12 +409,10 @@
       const propertyType = document.querySelector(".property-type").value;
       const unitNumber = document.querySelector(".unit-number").value;
 
-      const regex = /^[0-9]{6}$/;
-      if (!regex.test(postalCode)) {
+      if (postalCode == "") {
         errors.postalCode = "Please enter a valid postal code";
       }
 
-      console.log(postalCode, propertyType, unitNumber);
 
       // property type should be selected
       if (propertyType == "Property Type") {
