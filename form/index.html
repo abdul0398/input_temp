@@ -362,9 +362,10 @@
         </div>
       </div>
 
-
-      <form action=""></form>
     </div>
+    <script>
+      fillPostalFromParams();
+    </script>
   </body>
 
   <script>
@@ -397,7 +398,7 @@
       if (!validateStepTwo()) {
         return;
       }
-      alert("valuation submitted");
+      alert("valuation submitted")
     });
 
     function validateStepOne() {
@@ -478,6 +479,16 @@
     function isValidMobileNumber(mobileNumber) {
       const regex = /^[0-9]{8}$/;
       return regex.test(mobileNumber);
+    }
+
+
+
+    function fillPostalFromParams() {
+      const params = new URLSearchParams(window.location.search);
+      const address = params.get("address");
+      const regex = /[0-9]{6}/;
+      const postalCode = address.match(regex)[0];
+      document.querySelector(".postal-code").value = postalCode;
     }
   </script>
 </html>
