@@ -44,6 +44,7 @@
             font-weight: 500;
             border-radius: 7px;
             font-size: 14px;
+            cursor: pointer;
 
         }
         .input-container input:focus{
@@ -55,12 +56,10 @@
             overflow: auto;
             border: 1px solid #bfbfbf;
             background-color: white;
-            border-bottom-left-radius: 10px;
-            border-bottom-right-radius: 10px;
-            border-top: 0px;
+            border-radius: 10px;
         }
         .suggestion-dropdown div{
-            padding: 5px;
+            padding: 12px;
             width: 100%;
             border-bottom: 1px solid #bfbfbf;
             font-size: 14px;
@@ -122,7 +121,7 @@
             suggesstion_dropdown.innerHTML = ""
             data.forEach((item)=>{
               suggesstion_dropdown.innerHTML += `  
-                <div onclick="input.value='${item.ADDRESS}'">
+                <div onclick="handleDropdownClick(this)">
                     ${item.ADDRESS}
                 </div>
                 `
@@ -152,6 +151,12 @@
             const data = await response.json();
             console.log(data)
             return data.results;
+        }
+
+        function handleDropdownClick(element){
+            const value = element.innerText;
+            input.value = value;
+            suggesstion_dropdown.classList.add("hidden")
         }
 
 
