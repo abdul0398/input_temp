@@ -406,7 +406,7 @@
 
 
       const form = document.createElement("form");
-      form.setAttribute('action', document.referrer + 'dashboard?' + 'block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME + '&propertyType=' + propertyType)
+      form.setAttribute('action', document.referrer + 'dashboard-valuation/?' + 'block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME + '&propertyType=' + propertyType)
       form.setAttribute('method', "get");
       form.setAttribute('target', "_blank");
       document.body.appendChild(form);
