@@ -118,16 +118,16 @@
         input.addEventListener('input', debounce(async ()=>{
             const value  = input.value
             if(!value || value == ""){
-                suggesstion_dropdown.classList.add("hidden")
+                suggestionDropdown.classList.add("hidden")
                 return;
             }
             
             const data = await fetchAddressSuggestion(value);
             
 
-            suggesstion_dropdown.innerHTML = ""
+            suggestionDropdown.innerHTML = ""
             data.forEach((item, index)=>{
-              suggesstion_dropdown.innerHTML += `  
+                suggestionDropdown.innerHTML += `  
                 <div data-index="${index}" onclick="handleDropdownClick(this)">
                     ${item.ADDRESS}
                 </div>
@@ -135,7 +135,7 @@
             })
 
             searchResult = data;
-            suggesstion_dropdown.classList.remove("hidden")
+            suggestionDropdown.classList.remove("hidden")
         }, 200))
 
         btn.addEventListener('click',function(){
