@@ -26,6 +26,7 @@
         .input-container{
             height: 100%;
             width: 100%;
+            position: relative;
         }
 
         .input-container input{
@@ -51,12 +52,15 @@
             outline: none;
         }
         .suggestion-dropdown{
-            width: 100%;
+            width: 100vw;
             height: 150px;
             overflow: auto;
             border: 1px solid #bfbfbf;
             background-color: white;
             border-radius: 10px;
+            position: absolute;
+            left: -10px;
+            top: 55px;
         }
         .suggestion-dropdown div{
             padding: 12px;
@@ -103,6 +107,8 @@
         }
     </script>
     <script>
+        let searchResult = [];
+        let globalIndex;
 
         const input = document.querySelector('input');
         const btn = document.querySelector('button');
@@ -119,13 +125,15 @@
             
 
             suggesstion_dropdown.innerHTML = ""
-            data.forEach((item)=>{
+            data.forEach((item, index)=>{
               suggesstion_dropdown.innerHTML += `  
-                <div onclick="handleDropdownClick(this)">
+                <div data-index="${index}" onclick="handleDropdownClick(this)">
                     ${item.ADDRESS}
                 </div>
                 `
             })
+
+            searchResult = data;
             suggesstion_dropdown.classList.remove("hidden")
         }, 200))
 
@@ -134,7 +142,7 @@
             const form = document.createElement("form");
 
             // Set the form attributes
-            form.setAttribute('action', document.referrer + 'form?address=' + value);
+            form.setAttribute('action', document.referrer + 'form?address=' + value + '&block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME);
             form.setAttribute('method', "post");
             form.setAttribute("target", "_blank");
 
@@ -153,10 +161,13 @@
             return data.results;
         }
 
-        function handleDropdownClick(element){
-            const value = element.innerText;
+        function handleDropdownClick(element) {
+            const index = element.getAttribute('data-index');
+            const value = searchResult[index].ADDRESS;
+            globalIndex = index;
             input.value = value;
             suggesstion_dropdown.classList.add("hidden")
+            console.log('form?address=' + value + '&block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME)
         }
 
 
