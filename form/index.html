@@ -401,8 +401,12 @@
       }
 
       const block = document.querySelector(".block").value;
-      const roadName = document.querySelector(".road-name").value;
+      const roadName = document.querySelector(".road-name")?.value?.replace("STREET", "ST");
       const propertyType = document.querySelector(".property-type").value;
+
+
+
+      
 
       let redirectUrl = ""
       if(propertyType == "HDB"){
