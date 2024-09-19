@@ -422,6 +422,7 @@
       const form = document.createElement("form");
       form.setAttribute('action', redirectUrl);
       form.setAttribute('method', "get");
+      form.setAttribute('target', "_blank");
       document.body.appendChild(form);
       form.submit();
 
