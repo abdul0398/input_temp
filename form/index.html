@@ -405,22 +405,8 @@
       const propertyType = document.querySelector(".property-type").value;
 
 
-
-      
-
-      let redirectUrl = ""
-      if(propertyType == "HDB"){
-        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/hdb-market-rental-rates?block=" + block + "&street=" + roadName;
-      }else if(propertyType == "Apartment/ Condominium/ Executive Condominium"){
-        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/condo-ec-transactions?block=" + block + "&street=" + roadName;
-      }else{
-        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/condo-rental-rates?block=" + block + "&street=" + roadName;
-      }
-
-
-
       const form = document.createElement("form");
-      form.setAttribute('action', redirectUrl);
+      form.setAttribute('action', document.referrer + 'dashboard?' + 'block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME + '&propertyType=' + propertyType)
       form.setAttribute('method', "get");
       form.setAttribute('target', "_blank");
       document.body.appendChild(form);
@@ -527,5 +513,13 @@
           document.querySelector(".road-name").value = roadName;
         }
     }
+  
+  
+  
+    script
+  
+  </script>
+  <script>
+      
   </script>
 </html>
