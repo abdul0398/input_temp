@@ -362,6 +362,9 @@
         </div>
       </div>
 
+
+      <input type="text" hidden class="block">
+      <input type="text" hidden class="road-name">
     </div>
   </body>
 
@@ -480,11 +483,23 @@
 
 
     function fillPostalFromParams() {
-      const params = new URLSearchParams(window.location.search);
-      const address = params.get("address");
-      if(address){
-        document.querySelector(".postal-code").value = address;
-      }
+        const params = new URLSearchParams(window.location.search);
+        const address = params.get("address");
+        const block = params.get("block");
+        const roadName = params.get("ROAD_NAME");
+
+        
+        if(address){
+          document.querySelector(".postal-code").value = address;
+        }
+
+        if(block){
+          document.querySelector(".block").value = block;
+        }
+
+        if(roadName){
+          document.querySelector(".road-name").value = roadName;
+        }
     }
   </script>
 </html>
