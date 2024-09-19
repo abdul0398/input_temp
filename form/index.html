@@ -399,7 +399,28 @@
       if (!validateStepTwo()) {
         return;
       }
-      alert("valuation submitted")
+
+      const block = document.querySelector(".block").value;
+      const roadName = document.querySelector(".road-name").value;
+      const propertyType = document.querySelector(".property-type").value;
+
+      let redirectUrl = ""
+      if(propertyType == "HDB"){
+        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/hdb-market-rental-rates?block=" + block + "&street=" + roadName;
+      }else if(propertyType == "Apartment/ Condominium/ Executive Condominium"){
+        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/condo-ec-transactions?block=" + block + "&street=" + roadName;
+      }else{
+        redirectUrl = "https://dashboard.jomejourney-portal.com/dashboard/condo-rental-rates?block=" + block + "&street=" + roadName;
+      }
+
+
+
+      const form = document.createElement("form", redirectUrl);
+      form.setAttribute('action', );
+      form.setAttribute('method', "get");
+      document.body.appendChild(form);
+      form.submit();
+
     });
 
     function validateStepOne() {
