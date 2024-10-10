@@ -196,6 +196,45 @@
               />
               <p class="error error-unitNumber"></p>
             </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px" class="hidden bedroom-container">
+              <select
+                class="bedroom-type"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  padding: 2px 15px;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #d9e2ed;
+                "
+              >
+                <option value="Bedroom Type" disabled selected>
+                  Bedrooms
+                </option>
+              </select>
+              <p class="error error-bedroomType"></p>
+            </div>
+            <div style="width: 100%; height: 55px; margin-top: 20px" class="hidden foorRange-container">
+              <select
+                class="floor-range"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  padding: 2px 15px;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #d9e2ed;
+                "
+              >
+                <option value="Floor Range" disabled selected>
+                  Floor Range
+                </option>
+              </select>
+              <p class="error error-foorRange"></p>
+            </div>
+            
           </div>
 
           <div>
@@ -364,12 +403,13 @@
 
 
       <input type="text" hidden class="block">
-      <input type="text" hidden class="road-name">
+      <input type="text" hidden class="street">
     </div>
   </body>
 
   <script>
     fillPostalFromParams();
+    addEventListenerOnStart();
     const partOne = document.querySelector(".part-one");
     const partTwo = document.querySelector(".part-two");
     const getValuation = document.querySelector(".get-valuation-btn");
@@ -401,7 +441,7 @@
       }
 
       const block = document.querySelector(".block").value;
-      const roadName = document.querySelector(".road-name")?.value?.replace("STREET", "ST");
+      const roadName = document.querySelector(".street")?.value?.replace("STREET", "ST");
       const propertyType = document.querySelector(".property-type").value;
 
 
@@ -494,7 +534,7 @@
 
 
 
-    function fillPostalFromParams() {
+    async function fillPostalFromParams() {
         const params = new URLSearchParams(window.location.search);
         const address = params.get("address");
         const block = params.get("block");
@@ -502,7 +542,8 @@
 
         
         if(address){
-          document.querySelector(".postal-code").value = address;
+        const addressInput = document.querySelector(".postal-code")
+          addressInput.value = address;
         }
 
         if(block){
@@ -510,8 +551,58 @@
         }
 
         if(roadName){
-          document.querySelector(".road-name").value = roadName;
+          document.querySelector(".street").value = roadName;
         }
+    }
+
+
+    function addEventListenerOnStart(){
+      const propertyType = document.querySelector(".property-type");
+      
+      propertyType.addEventListener("change", async ()=>{
+        const street = document.querySelector(".street").value;
+        const propertyType = document.querySelector(".property-type").value;
+        const {bedrooms, floorRanges} = await fetchBedroomsOrFloorRange(street, propertyType);
+
+        if(propertyType == "HDB"){
+          const bedroomType = document.querySelector(".bedroom-type");
+          const foorRange = document.querySelector(".floor-range");
+          bedroomType.innerHTML = "";
+
+          for (const bedroom of bedrooms) {
+            const option = document.createElement("option");
+            option.value = bedroom.flat_type;
+            option.innerHTML = bedroom.flat_type;
+            bedroomType.appendChild(option);
+          } 
+          bedroomType.parentElement.classList.remove("hidden");
+          foorRange.parentElement.classList.add("hidden");
+        }else{
+          const bedroomType = document.querySelector(".bedroom-type");
+          const foorRange = document.querySelector(".floor-range");
+          bedroomType.parentElement.classList.add("hidden");
+          foorRange.parentElement.classList.remove("hidden");
+          foorRange.innerHTML = "";
+          for (const floorRange of floorRanges) {
+            const option = document.createElement("option");
+            option.value = floorRange.floorRange;
+            option.innerHTML = floorRange.floorRange;
+            foorRange.appendChild(option);
+          }
+        }
+      })
+
+
+
+    }
+
+
+
+
+    async function fetchBedroomsOrFloorRange(street, propertyType){
+      const response = await fetch(`http://3.24.9.244/api/address?street=${street}&propertyType=${propertyType}`)
+      const data = await response.json();
+      return data;
     }
   
   
