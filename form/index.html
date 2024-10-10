@@ -446,7 +446,37 @@
 
 
       const form = document.createElement("form");
-      form.setAttribute('action', document.referrer + 'dashboard-valuation/?' + 'block=' + block + '&street=' + roadName + '&propertyType=' + propertyType)
+      form.setAttribute('action', 'https://api.formautomations.homes/' + '/api/hdb/valuation/html?')
+
+      // Create and append the 'block' input field
+      const blockInput = document.createElement("input");
+      blockInput.type = "hidden";
+      blockInput.name = "block";
+      blockInput.value = block;
+      form.appendChild(blockInput);
+
+      // Create and append the 'street_name' input field
+      const streetInput = document.createElement("input");
+      streetInput.type = "hidden";
+      streetInput.name = "street_name";
+      streetInput.value = roadName;
+      form.appendChild(streetInput);
+
+      // If property type is 'HDB', include the 'flat_type' field
+      if (propertyType === "HDB") {
+        const bedroomType = document.querySelector('.bedroom-type').value;
+
+        const flatTypeInput = document.createElement("input");
+        flatTypeInput.type = "hidden";
+        flatTypeInput.name = "flat_type";
+        flatTypeInput.value = bedroomType;
+        form.appendChild(flatTypeInput);
+      }
+
+  // Append the form to the body and submit it
+      
+      
+
       form.setAttribute('method', "post");
       form.setAttribute('target', "_blank");
       document.body.appendChild(form);
@@ -473,6 +503,21 @@
       if (propertyType == "Property Type") {
         errors.propertyType = "Please select a property type";
       }
+
+
+      if(propertyType == "HDB"){
+        const bedroomType = document.querySelector(".bedroom-type").value;
+        if(bedroomType == ""){
+          errors.bedroomType = "Please select a bedroom type";
+        }
+      }else{
+        const foorRange = document.querySelector(".floor-range").value;
+        if(foorRange == ""){
+          errors.foorRange = "Please select a floor range";
+        }
+      }
+
+
 
       // unit number should be a number
       if (unitNumber == "" || isNaN(unitNumber)) {
