@@ -600,7 +600,7 @@
 
 
     async function fetchBedroomsOrFloorRange(street, propertyType){
-      const response = await fetch(`http://3.24.9.244/api/address?street=${street}&propertyType=${propertyType}`)
+      const response = await fetch(`https://api.formautomations.homes/api/address?street=${street}&propertyType=${propertyType}`)
       const data = await response.json();
       return data;
     }
