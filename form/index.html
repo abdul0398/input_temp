@@ -444,6 +444,7 @@
       const roadName = document.querySelector(".street")?.value?.replace("STREET", "ST");
       const propertyType = document.querySelector(".property-type").value;
       const bedroomType = document.querySelector('.bedroom-type').value;
+      const floorRange = document.querySelector('floor-range').value
 
 
 
@@ -454,11 +455,10 @@
       if(propertyType == "HDB"){
         url = 'https://api.formautomations.homes/' + '/api/hdb/valuation/html?' + 'block=' + block + '&street_name=' + roadName + '&flat_type=' + bedroomType
       }else{
-        // url = 'https://api.formautomations.homes/' + '/api/valuation/html?' + 'block=' + block + '&street_name=' + roadName + '&flat_type=' + bedroomType
+        url = `https://api.formautomations.homes/api/condo/valuation?street=${roadName}&floorRange=${floorRange}`
       }
 
       form.setAttribute('action', url)
-
       form.setAttribute('method', "post");
       form.setAttribute('target', "_blank");
       document.body.appendChild(form);
