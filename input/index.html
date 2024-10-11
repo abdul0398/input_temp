@@ -53,7 +53,7 @@
         }
         .suggestion-dropdown{
             width: 100vw;
-            height: 150px;
+            height: 200px;
             overflow: auto;
             border: 1px solid #bfbfbf;
             background-color: white;
@@ -126,12 +126,21 @@
             
 
             suggestionDropdown.innerHTML = ""
-            data.forEach((item, index)=>{
+
+            const filteredAdress = data.filter((item)=>{
+                return !item.ADDRESS.includes("BUS STOP")
+            })
+
+            if(filteredAdress.length == 0){
+                suggestionDropdown.innerHTML = `<div style="padding: 12px; font-size: 14px; color: red">No results found</div>`
+                return;
+            }
+
+            filteredAdress.forEach((item, index)=>{
                 suggestionDropdown.innerHTML += `  
                 <div data-index="${index}" onclick="handleDropdownClick(this)">
                     ${item.ADDRESS}
-                </div>
-                `
+                </div>`
             })
 
             searchResult = data;
