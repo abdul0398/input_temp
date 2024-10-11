@@ -596,12 +596,14 @@
           const foorRange = document.querySelector(".floor-range");
           bedroomType.innerHTML = "";
 
-          for (const bedroom of bedrooms) {
-            const option = document.createElement("option");
-            option.value = bedroom.flat_type;
-            option.innerHTML = bedroom.flat_type;
-            bedroomType.appendChild(option);
-          } 
+
+          bedroomType.innerHTML = `
+            <option value="Select Flat Type" disabled selected>Select Flat Type</option>
+            ${bedrooms.map((bedroom)=>{
+              return `<option value="${bedroom.flat_type}">${bedroom.flat_type}</option>`
+            }).join("")}
+          
+          `
           bedroomType.parentElement.classList.remove("hidden");
           foorRange.parentElement.classList.add("hidden");
         }else{
