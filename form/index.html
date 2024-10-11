@@ -590,7 +590,7 @@
         const street = document.querySelector(".street").value;
         const propertyType = document.querySelector(".property-type").value;
         const {bedrooms, floorRanges} = await fetchBedroomsOrFloorRange(street, propertyType);
-
+        bedrooms.sort();
         if(propertyType == "HDB"){
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
