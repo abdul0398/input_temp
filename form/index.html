@@ -558,11 +558,11 @@
         }
 
 
-        const propertyType = await fetchPropertyType(roadName);
+        const {propertyType} = await fetchPropertyType(roadName);
         document.querySelector(".property-type").innerHTML = `
           <option value="Select Property Type" disabled selected>Select Property Type</option>
           ${propertyType.map((propertyType)=>{
-            return `<option value="${propertyType}">${propertyType}</option>`
+            return `<option value="${propertyType.propertyType}">${propertyType.propertyType}</option>`
           }).join("")}
         `
     }
@@ -623,9 +623,9 @@
     async function fetchPropertyType(street){
       const response = await fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
      const data = await response.json();
+     console.log(data)
      return data;
     }
-  
   
   </script>
   <script>
