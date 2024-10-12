@@ -80,9 +80,9 @@
     >
       <div style="max-width: 700px; margin-bottom: 300px; padding: 0px 20px">
         <div>
-          <h1 class="heading">
+          <!-- <h1 class="heading">
             Singapore New Landed Homes
-          </h1>
+          </h1> -->
         </div>
         <div style="margin: 20px 0px">
           <p style="font-size: 25px; font-weight: 600">
@@ -91,8 +91,7 @@
         </div>
         <div>
           <p style="font-size: 18px">
-            Get an instant indicative property valuation by entering the address
-            of the property or search using keywords.
+            Enter your address or search with keywords, and get nearby selling prices updated live from URA. Your detailed home report will be sent within 24 hours via WhatsApp.
           </p>
         </div>
 
@@ -175,7 +174,6 @@
                 <option value="Strata Landed">Strata Landed</option>
                 <option value="Landed">Landed</option>
                 <option value="Walk-up Apartment">Walk-up Apartment</option>
-                <option value=""></option>
               </select>
               <p class="error error-propertyType"></p>
             </div>
@@ -239,29 +237,7 @@
 
           <div>
             <p style="margin-top: 20px">
-              The information and valuations published here are based upon
-              certain assumptions and analysis of information / data available
-              as at the date of publication, which are subject to change at any
-              time without notice. The information and valuations published here
-              are indicative only, and do not constitute a formal valuation by a
-              licensed appraiser. These valuations may vary from those available
-              from other sources as different parties may use different
-              assumptions, risks and methods.
-            </p>
-
-            <p style="margin-top: 20px">
-              United Overseas Bank Limited ("UOB") and CKS Property Consultants
-              Pte Ltd ("CKS") do not represent or warrant the accuracy or
-              completeness of the information and valuations contained herein.
-              Neither UOB nor CKS shall be liable for any loss or damage
-              howsoever arising as a result of any person acting or refraining
-              from acting in reliance on any information or valuation contained
-              herein.
-            </p>
-            <p style="margin-top: 20px">
-              If you are applying for a UOB Property Loan, please note that the
-              terms and conditions for a UOB Property Loan (including the
-              requirement for a formal property valuation) will apply.
+              The property price range provided is indicative and does not replace a formal valuation by a licensed appraiser. Actual valuations may vary depending on different methods and assumptions. This information offers a general overview of recent sales prices in your area, sourced from URA. For a more precise estimate, you will receive a 40+ page home report specific to your unit via WhatsApp, provided by our partner consultants. Our consultants are available for a free consultation, offering real estate advice, mortgage planning, or a second opinion on your property’s value
             </p>
           </div>
 
@@ -580,6 +556,15 @@
         if(roadName){
           document.querySelector(".street").value = roadName;
         }
+
+
+        const propertyType = await fetchPropertyType(roadName);
+        document.querySelector(".property-type").innerHTML = `
+          <option value="Select Property Type" disabled selected>Select Property Type</option>
+          ${propertyType.map((propertyType)=>{
+            return `<option value="${propertyType}">${propertyType}</option>`
+          }).join("")}
+        `
     }
 
 
@@ -620,9 +605,6 @@
           }
         }
       })
-
-
-
     }
 
 
@@ -635,6 +617,13 @@
     }
   
   
+
+
+
+    function fetchPropertyType(street){
+      const response = fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
+      return response.json();
+    }
   
   
   </script>
