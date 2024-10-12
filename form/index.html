@@ -620,9 +620,10 @@
 
 
 
-    function fetchPropertyType(street){
-      const response = fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
-      return response.json();
+    async function fetchPropertyType(street){
+      const response = await fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
+     const data = await response.json();
+     return data;
     }
   
   
