@@ -237,12 +237,12 @@
 
           <div>
             <p style="margin-top: 20px">
-              The property price range provided is indicative and does not replace a formal valuation by a licensed appraiser. Actual valuations may vary depending on different methods and assumptions. This information offers a general overview of recent sales prices in your area, sourced from URA. For a more precise estimate, you will receive a 40+ page home report specific to your unit via WhatsApp, provided by our partner consultants. Our consultants are available for a free consultation, offering real estate advice, mortgage planning, or a second opinion on your property’s value
+              The property price range provided is indicative and does not replace a formal valuation by a licensed appraiser. Actual valuations may vary depending on different methods and assumptions. This information offers a general overview of recent sales prices in your area, sourced from URA. For a more precise estimate, you will receive a 40+ page home report specific to your unit via WhatsApp, provided by our partner consultants. Our consultants are available for a free consultation, offering real estate advice, mortgage planning, or a second opinion on your property’s value.
             </p>
           </div>
 
           <div style="margin-top: 20px">
-            <p>Powered by CKS Property Consultants</p>
+            <p>Powered by CKS Property Consultants.</p>
             <div style="margin-top: 15px">
               <button
                 class="get-valuation-btn"
@@ -324,7 +324,7 @@
                 </div>
                 <input
                   class="phone"
-                  type="number"
+                  type="tel"
                   style="
                     background-color: transparent;
                     font-size: 16px;
@@ -405,6 +405,37 @@
       partOne.classList.add("hidden");
       partTwo.classList.remove("hidden");
     });
+
+    const phone = document.querySelector('.phone');
+
+    phone.addEventListener("input", function () {
+      let phoneNumber = this.value.replace(/\D/g, ''); // Remove all non-digit characters
+
+      // Ensure the number starts with 9 or 8
+      if (phoneNumber.length > 0 && !['9', '8'].includes(phoneNumber[0])) {
+        phoneNumber = ''; // Clear the input if it doesn't start with 9 or 8
+      }
+
+      // Limit the length to 8 digits
+      if (phoneNumber.length > 8) {
+        phoneNumber = phoneNumber.slice(0, 8);
+      }
+
+      console.log(phoneNumber);
+      this.value = phoneNumber; // Update the input field value
+    });
+
+    const name = document.querySelector('.name');
+
+    name.addEventListener("input", function () {
+      // Replace any characters that are not letters or spaces
+      let nameValue = this.value.replace(/[^a-zA-Z\s]/g, '');
+      
+      this.value = nameValue; // Update the input field with valid characters
+    });
+
+
+
 
     previous.addEventListener("click", () => {
       stepOneCircle.classList.remove("bg-green");
@@ -563,7 +594,7 @@
         const {propertyType} = await fetchPropertyType(roadName);
         document.querySelector(".property-type").innerHTML = `
           <option value="Select Property Type" disabled selected>Select Property Type</option>
-          ${propertyType.map((propertyType)=>{
+          ${propertyType?.map((propertyType)=>{
             return `<option value="${propertyType.propertyType}">${propertyType.propertyType}</option>`
           }).join("")}
         `
@@ -614,6 +645,14 @@
           }
         }
       })
+
+     
+
+
+
+
+
+
     }
 
 
