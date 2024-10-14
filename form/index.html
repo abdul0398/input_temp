@@ -578,7 +578,10 @@
         const propertyType = document.querySelector(".property-type").value;
         const {bedrooms, floorRanges} = await fetchBedroomsOrFloorRange(street, propertyType);
         if(propertyType == "HDB"){
-          bedrooms.sort();
+          // sort based on flat type
+          console.log(bedrooms)
+          bedrooms.sort((a, b) => a.flat_type.localeCompare(b.flat_type));
+          console.log(bedrooms)
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
           bedroomType.innerHTML = "";
