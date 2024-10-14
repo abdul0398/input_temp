@@ -52,7 +52,7 @@
             outline: none;
         }
         .suggestion-dropdown{
-            width: 100vw;
+            width: 99vw;
             height: 200px;
             overflow: auto;
             border: 1px solid #bfbfbf;
@@ -135,7 +135,6 @@
 
 
 
-                console.log(streets)
                 const isStreetExist = streets.find((street)=>{
                     return street == item.ROAD_NAME.replace("STREET", "ST")
                 })
@@ -197,7 +196,6 @@
         async function fetchAllStreets(){
             const response = await fetch('https://api.formautomations.homes/api/streets')
             const data = await response.json();
-            console.log(data)
             streets = data?.streets;
             return data;
         }
