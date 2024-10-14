@@ -384,6 +384,8 @@
   </body>
 
   <script>
+ 
+
     fillPostalFromParams();
     addEventListenerOnStart();
     const partOne = document.querySelector(".part-one");
@@ -609,17 +611,12 @@
     }
 
 
-
-
     async function fetchBedroomsOrFloorRange(street, propertyType){
       const response = await fetch(`https://api.formautomations.homes/api/address?street=${street}&propertyType=${propertyType}`)
       const data = await response.json();
       return data;
     }
   
-  
-
-
 
     async function fetchPropertyType(street){
       const response = await fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
@@ -627,6 +624,8 @@
      console.log(data)
      return data;
     }
+
+  
   
   </script>
   <script>

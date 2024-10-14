@@ -91,6 +91,8 @@
 
 
     <script>            
+      
+
         // utilities        
         function debounce(func, delay) {
             let timeoutId;
@@ -109,6 +111,8 @@
     <script>
         let searchResult = [];
         let globalIndex = -1;
+        let streets = [];
+        fetchAllStreets();
 
 
         const input = document.querySelector('input');
@@ -128,7 +132,18 @@
             suggestionDropdown.innerHTML = ""
 
             const filteredAdress = data.filter((item)=>{
-                return !item.ADDRESS.includes("BUS STOP")
+
+
+
+                const isStreetExist = streets.find((street)=>{
+                    return street.street == item.STREET.replace("STREET", "ST")
+                })
+
+
+                return (
+                    
+                !item.ADDRESS.includes("BUS STOP") && isStreetExist
+            )
             })
 
             if(filteredAdress.length == 0){
@@ -178,6 +193,12 @@
             suggestionDropdown.classList.add("hidden");
         }
 
+        async function fetchAllStreets(){
+            const response = await fetch('https://api.formautomations.homes/api/streets')
+            const data = await response.json();
+            streets = data?.streets;
+            return data;
+        }
 
     </script>
 
