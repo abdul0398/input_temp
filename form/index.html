@@ -597,7 +597,10 @@
           bedroomType.parentElement.classList.remove("hidden");
           foorRange.parentElement.classList.add("hidden");
         }else{
-          floorRanges.sort();
+          // sort based on floor range
+          console.log(floorRanges)
+          floorRanges.sort((a, b) => a.floorRange.localeCompare(b.floorRange));
+          console.log(floorRanges)
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
           bedroomType.parentElement.classList.add("hidden");
