@@ -165,10 +165,11 @@
             suggestionDropdown.classList.remove("hidden")
         }, 200))
 
-        btn.addEventListener('input',function(){
+        btn.addEventListener('click',function(){
             const value = input.value;
             const form = document.createElement("form");
 
+            console.log(searchResult)
             // Set the form attributes
             form.setAttribute('action', document.referrer + 'form?address=' + value + '&block=' + searchResult[globalIndex].BLK_NO + '&ROAD_NAME=' + searchResult[globalIndex].ROAD_NAME);
             form.setAttribute('method', "post");
