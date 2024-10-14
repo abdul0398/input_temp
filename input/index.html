@@ -136,8 +136,11 @@
 
 
                 const isStreetExist = streets.find((street)=>{
+                    console.log(street, item.ROAD_NAME.replace("STREET", "ST"))
                     return street == item.ROAD_NAME.replace("STREET", "ST")
                 })
+
+                console.log(isStreetExist)
 
 
                 return (
