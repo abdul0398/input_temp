@@ -387,6 +387,7 @@
  
 
     fillPostalFromParams();
+    changeColorUsingParams();
     addEventListenerOnStart();
     const partOne = document.querySelector(".part-one");
     const partTwo = document.querySelector(".part-two");
@@ -666,11 +667,16 @@
     async function fetchPropertyType(street){
       const response = await fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
      const data = await response.json();
-     console.log(data)
      return data;
     }
 
-  
+  function changeColorUsingParams() {
+    const params = new URLSearchParams(window.location.search);
+    const color = params.get("color");
+    if (color) {
+      document.body.style.backgroundColor = `#${color}`;
+    }
+  }
   
   </script>
   <script>
