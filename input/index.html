@@ -204,6 +204,17 @@
             return data;
         }
 
+
+
+        function changeColorUsingParams() {
+            const params = new URLSearchParams(window.location.search);
+            const color = params.get("color");
+            if (color) {
+                const btn = document.querySelector('.btn-container button');
+                btn.style.backgroundColor = `#${color}`;
+            }
+        }
+
     </script>
 
 </body>
