@@ -673,8 +673,16 @@
   function changeColorUsingParams() {
     const params = new URLSearchParams(window.location.search);
     const color = params.get("color");
+    const btnColor = params.get("btnColor");
     if (color) {
       document.body.style.backgroundColor = `#${color}`;
+    }
+
+    if(btnColor){
+      document.querySelector(".get-valuation-btn").style.backgroundColor = `#${btnColor}`;
+      document.querySelector(".submit-btn").style.backgroundColor = `#${btnColor}`;
+      document.querySelector(".previous").style.color = `#${btnColor}`;
+
     }
   }
   
