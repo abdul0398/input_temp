@@ -31,7 +31,7 @@
       .btn-container {
         width: 50%; 
         display: flex; 
-        margin-top: 20px
+        margin-top: 40px
       }
 
       .heading {
@@ -303,8 +303,10 @@
         <div class="part-two hidden">
           <div style="margin-top: 20px">
             <div style="width: 100%; height: 55px">
+              <label for="name">Full Name</label>
               <input
                 class="name"
+                id="name"
                 type="text"
                 style="
                   font-size: 16px;
@@ -319,9 +321,11 @@
               />
               <p class="error error-name"></p>
             </div>
-            <div style="width: 100%; height: 55px; margin-top: 20px">
+            <div style="width: 100%; height: 55px; margin-top: 40px">
+              <label for="email">Email</label>
               <input
                 class="email"
+                id="email"
                 type="text"
                 style="
                   font-size: 16px;
@@ -336,7 +340,8 @@
               />
               <p class="error error-email"></p>
             </div>
-            <div style="width: 100%; height: 55px; margin-top: 20px">
+            <div style="width: 100%; height: 55px; margin-top: 40px">
+              <label for="phone">Mobile Number</label>
               <div
                 style="
                   display: flex;
@@ -358,9 +363,11 @@
                 >
                   <img src="flag.png" alt="" style="width: 60px" />
                 </div>
+               
                 <input
                   class="phone"
                   type="tel"
+                  id="phone"
                   style="
                     background-color: transparent;
                     font-size: 16px;
