@@ -581,6 +581,9 @@
         if(address){
         const addressInput = document.querySelector(".postal-code")
           addressInput.value = address;
+          // disable the input field
+          addressInput.disabled = true;
+          
         }
 
         if(block){
@@ -611,9 +614,7 @@
         const {bedrooms, floorRanges} = await fetchBedroomsOrFloorRange(street, propertyType);
         if(propertyType == "HDB"){
           // sort based on flat type
-          console.log(bedrooms)
           bedrooms.sort((a, b) => a.flat_type.localeCompare(b.flat_type));
-          console.log(bedrooms)
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
           bedroomType.innerHTML = "";
@@ -630,9 +631,7 @@
           foorRange.parentElement.classList.add("hidden");
         }else{
           // sort based on floor range
-          console.log(floorRanges)
           floorRanges.sort((a, b) => a.floorRange.localeCompare(b.floorRange));
-          console.log(floorRanges)
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
           bedroomType.parentElement.classList.add("hidden");
