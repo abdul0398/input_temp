@@ -29,16 +29,16 @@
         color: black;
       }
       .btn-container {
-        width: 50%; 
-        display: flex; 
-        margin-top: 40px
+        width: 50%;
+        display: flex;
+        margin-top: 40px;
       }
 
       .heading {
-        font-size: 40px; 
-        font-weight: 600
+        font-size: 40px;
+        font-weight: 600;
       }
-      label{
+      label {
         font-size: 16px;
       }
 
@@ -52,18 +52,18 @@
         border: 1px solid white;
         color: black;
       }
-      .suggestion-dropdown{
-          width: 100%;
-          height: 200px;
-          overflow: auto;
-          border: 1px solid #bfbfbf;
-          background-color: white;
-          border-radius: 10px;
-          position: absolute;
-          left: 0px;
-          top: 86px;
+      .suggestion-dropdown {
+        width: 100%;
+        height: 200px;
+        overflow: auto;
+        border: 1px solid #bfbfbf;
+        background-color: white;
+        border-radius: 10px;
+        position: absolute;
+        left: 0px;
+        top: 86px;
       }
-      .suggestion-dropdown div{
+      .suggestion-dropdown div {
         padding: 12px;
         width: 100%;
         color: black;
@@ -111,7 +111,9 @@
         </div>
         <div>
           <p style="font-size: 18px">
-            Enter your address or search with keywords, and get nearby selling prices updated live from URA. Your detailed home report will be sent within 24 hours via WhatsApp.
+            Enter your address or search with keywords, and get nearby selling
+            prices updated live from URA. Your detailed home report will be sent
+            within 24 hours via WhatsApp.
           </p>
         </div>
 
@@ -153,7 +155,7 @@
         <!-- PART ONE -->
         <div class="part-one">
           <div style="margin-top: 40px">
-            <div style="width: 100%; height: 55px; position: relative;">
+            <div style="width: 100%; height: 55px; position: relative">
               <label for="postal-code">Address</label>
               <input
                 required
@@ -226,7 +228,10 @@
               />
               <p class="error error-unitNumber"></p>
             </div>
-            <div style="width: 100%; height: 55px; margin-top: 40px" class="hidden bedroom-container">
+            <div
+              style="width: 100%; height: 55px; margin-top: 40px"
+              class="hidden bedroom-container"
+            >
               <label for="bedroom-type">Bedroom Type</label>
               <select
                 class="bedroom-type"
@@ -241,13 +246,14 @@
                   background-color: #d9e2ed;
                 "
               >
-                <option value="Bedroom Type" disabled selected>
-                  Bedrooms
-                </option>
+                <option value="Bedroom Type" disabled selected>Bedrooms</option>
               </select>
               <p class="error error-bedroomType"></p>
             </div>
-            <div style="width: 100%; height: 55px; margin-top: 40px" class="hidden foorRange-container">
+            <div
+              style="width: 100%; height: 55px; margin-top: 40px"
+              class="hidden foorRange-container"
+            >
               <label for="floor-range">Floor Range</label>
               <select
                 class="floor-range"
@@ -268,12 +274,41 @@
               </select>
               <p class="error error-foorRange"></p>
             </div>
-            
+            <div
+              style="width: 100%; height: 55px; margin-top: 40px"
+              class="foorRange-container"
+            >
+              <label for="sqft">Sqft</label>
+              <input
+                class="sqft"
+                type="text"
+                style="
+                  font-size: 16px;
+                  width: 100%;
+                  height: 100%;
+                  padding: 2px 15px;
+                  border-radius: 5px;
+                  border: none;
+                  background-color: #d9e2ed;
+                "
+                placeholder="Sqft"
+              />
+              <p class="error error-sqft"></p>
+            </div>
           </div>
 
-          <div style="margin-top: 50px;">
+          <div style="margin-top: 50px">
             <p style="margin-top: 20px">
-              The property price range provided is indicative and does not replace a formal valuation by a licensed appraiser. Actual valuations may vary depending on different methods and assumptions. This information offers a general overview of recent sales prices in your area, sourced from URA. For a more precise estimate, you will receive a 40+ page home report specific to your unit via WhatsApp, provided by our partner consultants. Our consultants are available for a free consultation, offering real estate advice, mortgage planning, or a second opinion on your property’s value.
+              The property price range provided is indicative and does not
+              replace a formal valuation by a licensed appraiser. Actual
+              valuations may vary depending on different methods and
+              assumptions. This information offers a general overview of recent
+              sales prices in your area, sourced from URA. For a more precise
+              estimate, you will receive a 40+ page home report specific to your
+              unit via WhatsApp, provided by our partner consultants. Our
+              consultants are available for a free consultation, offering real
+              estate advice, mortgage planning, or a second opinion on your
+              property’s value.
             </p>
           </div>
 
@@ -363,7 +398,7 @@
                 >
                   <img src="flag.png" alt="" style="width: 60px" />
                 </div>
-               
+
                 <input
                   class="phone"
                   type="tel"
@@ -383,7 +418,7 @@
               <p class="error error-phone"></p>
             </div>
           </div>
-          <div class="btn-container" >
+          <div class="btn-container">
             <div style="width: 50%">
               <button
                 class="previous"
@@ -420,37 +455,35 @@
         </div>
       </div>
 
-
-      <input type="text" hidden class="block">
-      <input type="text" hidden class="street">
+      <input type="text" hidden class="block" />
+      <input type="text" hidden class="street" />
     </div>
   </body>
-  <script>            
-    // utilities        
+  <script>
+    // utilities
     function debounce(func, delay) {
-        let timeoutId;
-        
-        return function(...args) {
-            // Clear the previous timeout
-            clearTimeout(timeoutId);
-            
-            // Set a new timeout
-            timeoutId = setTimeout(() => {
-            func.apply(this, args);
-            }, delay);
-        };
+      let timeoutId;
+
+      return function (...args) {
+        // Clear the previous timeout
+        clearTimeout(timeoutId);
+
+        // Set a new timeout
+        timeoutId = setTimeout(() => {
+          func.apply(this, args);
+        }, delay);
+      };
     }
-</script>
+  </script>
   <script>
     let searchResult = [];
     let globalIndex = -1;
     let streets = [];
- 
 
     fillPostalFromParams();
     changeColorUsingParams();
     addEventListenerOnStart();
-    fetchAllStreets()
+    fetchAllStreets();
     const partOne = document.querySelector(".part-one");
     const partTwo = document.querySelector(".part-two");
     const getValuation = document.querySelector(".get-valuation-btn");
@@ -469,14 +502,14 @@
       partTwo.classList.remove("hidden");
     });
 
-    const phone = document.querySelector('.phone');
+    const phone = document.querySelector(".phone");
 
     phone.addEventListener("input", function () {
-      let phoneNumber = this.value.replace(/\D/g, ''); // Remove all non-digit characters
+      let phoneNumber = this.value.replace(/\D/g, ""); // Remove all non-digit characters
 
       // Ensure the number starts with 9 or 8
-      if (phoneNumber.length > 0 && !['9', '8'].includes(phoneNumber[0])) {
-        phoneNumber = ''; // Clear the input if it doesn't start with 9 or 8
+      if (phoneNumber.length > 0 && !["9", "8"].includes(phoneNumber[0])) {
+        phoneNumber = ""; // Clear the input if it doesn't start with 9 or 8
       }
 
       // Limit the length to 8 digits
@@ -488,17 +521,14 @@
       this.value = phoneNumber; // Update the input field value
     });
 
-    const name = document.querySelector('.name');
+    const name = document.querySelector(".name");
 
     name.addEventListener("input", function () {
       // Replace any characters that are not letters or spaces
-      let nameValue = this.value.replace(/[^a-zA-Z\s]/g, '');
-      
+      let nameValue = this.value.replace(/[^a-zA-Z\s]/g, "");
+
       this.value = nameValue; // Update the input field with valid characters
     });
-
-
-
 
     previous.addEventListener("click", () => {
       stepOneCircle.classList.remove("bg-green");
@@ -513,29 +543,40 @@
       }
 
       const block = document.querySelector(".block").value;
-      const roadName = document.querySelector(".street")?.value?.replace("STREET", "ST");
+      const roadName = document
+        .querySelector(".street")
+        ?.value?.replace("STREET", "ST");
       const propertyType = document.querySelector(".property-type").value;
-      const bedroomType = document.querySelector('.bedroom-type').value;
-      const floorRange = document.querySelector('.floor-range').value
-
-
+      const bedroomType = document.querySelector(".bedroom-type").value;
+      const floorRange = document.querySelector(".floor-range").value;
+      const address = document.querySelector(".postal-code").value;
+      const sqftNumber = document.querySelector(".sqft").value;
 
       const form = document.createElement("form");
 
       let url = "";
 
-      if(propertyType == "HDB"){
-        url = 'https://api.formautomations.homes/' + '/api/hdb/valuation/html?' + 'block=' + block + '&street_name=' + roadName + '&flat_type=' + bedroomType + '&propertyType=' + propertyType
-      }else{
-        url = `https://api.formautomations.homes/api/condo/valuation?street=${roadName}&floorRange=${floorRange}&propertyType=${propertyType}`
+      if (propertyType == "HDB") {
+        url =
+          "https://api.formautomations.homes/" +
+          "/api/hdb/valuation/html?" +
+          "block=" +
+          block +
+          "&street_name=" +
+          roadName +
+          "&flat_type=" +
+          bedroomType +
+          "&propertyType=" +
+          propertyType;
+      } else {
+        url = `https://api.formautomations.homes/api/condo/valuation?street=${roadName}&floorRange=${floorRange}&propertyType=${propertyType}&address=${address}&sqft=${sqftNumber}`;
       }
 
-      form.setAttribute('action', url)
-      form.setAttribute('method', "post");
-      form.setAttribute('target', "_blank");
+      form.setAttribute("action", url);
+      form.setAttribute("method", "post");
+      form.setAttribute("target", "_blank");
       document.body.appendChild(form);
       form.submit();
-
     });
 
     function validateStepOne() {
@@ -547,35 +588,36 @@
       const postalCode = document.querySelector(".postal-code").value;
       const propertyType = document.querySelector(".property-type").value;
       const unitNumber = document.querySelector(".unit-number").value;
+      const sqftNumber = document.querySelector(".sqft").value;
 
       if (postalCode == "") {
         errors.postalCode = "Please enter a valid postal code";
       }
-
 
       // property type should be selected
       if (propertyType == "Property Type") {
         errors.propertyType = "Please select a property type";
       }
 
-
-      if(propertyType == "HDB"){
+      if (propertyType == "HDB") {
         const bedroomType = document.querySelector(".bedroom-type").value;
-        if(bedroomType == ""){
+        if (bedroomType == "") {
           errors.bedroomType = "Please select a bedroom type";
         }
-      }else{
+      } else {
         const foorRange = document.querySelector(".floor-range").value;
-        if(foorRange == ""){
+        if (foorRange == "") {
           errors.foorRange = "Please select a floor range";
         }
       }
 
-
-
       // unit number should be a number
       if (unitNumber == "" || isNaN(unitNumber)) {
         errors.unitNumber = "Please enter a valid unit number";
+      }
+
+      if (sqftNumber == "" || isNaN(sqftNumber)) {
+        errors.sqft = "Please enter a valid sqft number";
       }
 
       if (Object.keys(errors).length > 0) {
@@ -631,58 +673,68 @@
       return regex.test(mobileNumber);
     }
 
-
-
     async function fillPostalFromParams() {
-        const params = new URLSearchParams(window.location.search);
-        const address = params.get("address");
-        const block = params.get("block");
-        const roadName = params.get("ROAD_NAME");
+      const params = new URLSearchParams(window.location.search);
+      const address = params.get("address");
+      const block = params.get("block");
+      const roadName = params.get("ROAD_NAME");
 
-        
-        if(address){
-        const addressInput = document.querySelector(".postal-code")
-          addressInput.value = address;
-        }
+      if (address) {
+        const addressInput = document.querySelector(".postal-code");
+        addressInput.value = address;
+      }
 
-        if(block){
-          document.querySelector(".block").value = block;
-        }
+      if (block) {
+        document.querySelector(".block").value = block;
+      }
 
-        if(roadName){
-          document.querySelector(".street").value = roadName;
-        }
+      if (roadName) {
+        document.querySelector(".street").value = roadName;
+      }
 
-
-        await populatePropertyType(roadName); 
+      await populatePropertyType(roadName);
     }
 
-
-    function addEventListenerOnStart(){
+    function addEventListenerOnStart() {
       const propertyType = document.querySelector(".property-type");
-      
-      propertyType.addEventListener("change", async ()=>{
+      const sqft = document.querySelector(".sqft");
+      sqft.addEventListener("input", function () {
+        let sqftNumber = this.value.replace(/\D/g, ""); // Remove all non-digit characters
+
+        // Ensure the number is less then 2000
+        if (sqftNumber > 2000) {
+          sqftNumber = 2000;
+        }
+
+        this.value = sqftNumber; // Update the input field value
+      });
+
+      propertyType.addEventListener("change", async () => {
         const street = document.querySelector(".street").value;
         const propertyType = document.querySelector(".property-type").value;
-        const {bedrooms, floorRanges} = await fetchBedroomsOrFloorRange(street, propertyType);
-        if(propertyType == "HDB"){
+        const { bedrooms, floorRanges } = await fetchBedroomsOrFloorRange(
+          street,
+          propertyType
+        );
+        if (propertyType == "HDB") {
           // sort based on flat type
           bedrooms.sort((a, b) => a.flat_type.localeCompare(b.flat_type));
           const bedroomType = document.querySelector(".bedroom-type");
           const foorRange = document.querySelector(".floor-range");
           bedroomType.innerHTML = "";
 
-
           bedroomType.innerHTML = `
             <option value="Select Flat Type" disabled selected>Select Flat Type</option>
-            ${bedrooms.map((bedroom)=>{
-              return `<option value="${bedroom.flat_type}">${bedroom.flat_type}</option>`
-            }).join("")}
+            ${bedrooms
+              .map((bedroom) => {
+                return `<option value="${bedroom.flat_type}">${bedroom.flat_type}</option>`;
+              })
+              .join("")}
           
-          `
+          `;
           bedroomType.parentElement.classList.remove("hidden");
           foorRange.parentElement.classList.add("hidden");
-        }else{
+        } else {
           // sort based on floor range
           floorRanges.sort((a, b) => a.floorRange.localeCompare(b.floorRange));
           const bedroomType = document.querySelector(".bedroom-type");
@@ -697,140 +749,132 @@
             foorRange.appendChild(option);
           }
         }
-      })
-
-     
-
-
-
-
-
-
+      });
     }
 
-
-    async function fetchBedroomsOrFloorRange(street, propertyType){
-      const response = await fetch(`https://api.formautomations.homes/api/address?street=${street}&propertyType=${propertyType}`)
+    async function fetchBedroomsOrFloorRange(street, propertyType) {
+      const response = await fetch(
+        `https://api.formautomations.homes/api/address?street=${street}&propertyType=${propertyType}`
+      );
       const data = await response.json();
       return data;
     }
-  
 
-    async function fetchPropertyType(street){
+    async function fetchPropertyType(street) {
       try {
-        const response = await fetch(`https://api.formautomations.homes/api/propertyType?street=${street}`)
+        const response = await fetch(
+          `https://api.formautomations.homes/api/propertyType?street=${street}`
+        );
         const data = await response.json();
-        return data;        
+        return data;
       } catch (error) {
         return {
-          propertyType:[]
+          propertyType: [],
         };
       }
     }
 
-  function changeColorUsingParams() {
-    const params = new URLSearchParams(window.location.search);
-    const color = params.get("color");
-    const btnColor = params.get("btnColor");
-    if (color) {
-      document.body.style.backgroundColor = `#${color}`;
-    }
-
-    if(btnColor){
-      document.querySelector(".get-valuation-btn").style.backgroundColor = `#${btnColor}`;
-      document.querySelector(".submit-btn").style.backgroundColor = `#${btnColor}`;
-      document.querySelector(".previous").style.color = `#${btnColor}`;
-
-    }
-  }
-
-
-
-  const address = document.querySelector("#postal-code");
-  const suggestionDropdown = document.querySelector(".suggestion-dropdown")
-    address.addEventListener('input', debounce(async ()=>{
-      const value  = address.value
-      if(!value || value == ""){
-          suggestionDropdown.classList.add("hidden")
-          return;
-      }
-      
-      const data = await fetchAddressSuggestion(value);
-      
-
-      suggestionDropdown.innerHTML = ""
-
-      const filteredAdress = data.filter((item)=>{
-
-
-
-          const isStreetExist = streets.find((street)=>{
-              return street == item.ROAD_NAME.replace("STREET", "ST")
-          })
-
-          console.log(isStreetExist)
-
-
-          return (
-              
-          !item.ADDRESS.includes("BUS STOP") && isStreetExist
-      )
-      })
-      suggestionDropdown.classList.remove("hidden")
-
-
-      if(filteredAdress.length == 0){
-          suggestionDropdown.innerHTML = `<div style="padding: 12px; font-size: 14px; color: red">No results found</div>`
-          return;
+    function changeColorUsingParams() {
+      const params = new URLSearchParams(window.location.search);
+      const color = params.get("color");
+      const btnColor = params.get("btnColor");
+      if (color) {
+        document.body.style.backgroundColor = `#${color}`;
       }
 
-      filteredAdress.forEach((item, index)=>{
+      if (btnColor) {
+        document.querySelector(
+          ".get-valuation-btn"
+        ).style.backgroundColor = `#${btnColor}`;
+        document.querySelector(
+          ".submit-btn"
+        ).style.backgroundColor = `#${btnColor}`;
+        document.querySelector(".previous").style.color = `#${btnColor}`;
+      }
+    }
+
+    const address = document.querySelector("#postal-code");
+    const suggestionDropdown = document.querySelector(".suggestion-dropdown");
+    address.addEventListener(
+      "input",
+      debounce(async () => {
+        const value = address.value;
+        if (!value || value == "") {
+          suggestionDropdown.classList.add("hidden");
+          return;
+        }
+
+        const data = await fetchAddressSuggestion(value);
+
+        suggestionDropdown.innerHTML = "";
+
+        const filteredAdress = data.filter((item) => {
+          const isStreetExist = streets.find((street) => {
+            return street == item.ROAD_NAME.replace("STREET", "ST");
+          });
+
+          console.log(isStreetExist);
+
+          return !item.ADDRESS.includes("BUS STOP") && isStreetExist;
+        });
+        suggestionDropdown.classList.remove("hidden");
+
+        if (filteredAdress.length == 0) {
+          suggestionDropdown.innerHTML = `<div style="padding: 12px; font-size: 14px; color: red">No results found</div>`;
+          return;
+        }
+
+        filteredAdress.forEach((item, index) => {
           suggestionDropdown.innerHTML += `  
           <div data-index="${index}" onclick="handleDropdownClick(this)">
               ${item.ADDRESS}
-          </div>`
-      })
+          </div>`;
+        });
 
-      searchResult = filteredAdress;
-  }, 200))
+        searchResult = filteredAdress;
+      }, 200)
+    );
 
-
-  async function fetchAddressSuggestion(value){
-      console.log("trigger API")
-      const response = await fetch(`https://www.onemap.gov.sg/api/common/elastic/search?searchVal=${value}&returnGeom=Y&getAddrDetails=Y&pageNum=1`)
+    async function fetchAddressSuggestion(value) {
+      console.log("trigger API");
+      const response = await fetch(
+        `https://www.onemap.gov.sg/api/common/elastic/search?searchVal=${value}&returnGeom=Y&getAddrDetails=Y&pageNum=1`
+      );
       const data = await response.json();
       return data.results;
-  }
+    }
 
-  function handleDropdownClick(element) {
-      const index = element.getAttribute('data-index');
+    function handleDropdownClick(element) {
+      const index = element.getAttribute("data-index");
       globalIndex = parseInt(index, 10); // Convert to number
       const value = searchResult[globalIndex].ADDRESS;
       address.value = value;
-      document.querySelector(".street").value = searchResult[globalIndex].ROAD_NAME;
+      document.querySelector(".street").value =
+        searchResult[globalIndex].ROAD_NAME;
       document.querySelector(".block").value = searchResult[globalIndex].BLK_NO;
       populatePropertyType(searchResult[globalIndex].ROAD_NAME);
       suggestionDropdown.classList.add("hidden");
-  }
+    }
 
-  async function fetchAllStreets(){
-      const response = await fetch('https://api.formautomations.homes/api/streets')
+    async function fetchAllStreets() {
+      const response = await fetch(
+        "https://api.formautomations.homes/api/streets"
+      );
       const data = await response.json();
       streets = data?.streets;
       return data;
-  }
+    }
 
-
-  async function populatePropertyType(street){
-    const {propertyType} = await fetchPropertyType(street);
-    document.querySelector(".property-type").innerHTML = `
+    async function populatePropertyType(street) {
+      const { propertyType } = await fetchPropertyType(street);
+      document.querySelector(".property-type").innerHTML = `
         <option value="Select Property Type" disabled selected>Select Property Type</option>
-        ${propertyType?.map((propertyType)=>{
-            return `<option value="${propertyType.propertyType}">${propertyType.propertyType}</option>`
-        }).join("")}
-    `
-  }
-  
+        ${propertyType
+          ?.map((propertyType) => {
+            return `<option value="${propertyType.propertyType}">${propertyType.propertyType}</option>`;
+          })
+          .join("")}
+    `;
+    }
   </script>
-   
 </html>
