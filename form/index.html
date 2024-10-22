@@ -567,7 +567,11 @@
           "&flat_type=" +
           bedroomType +
           "&propertyType=" +
-          propertyType;
+          propertyType +
+          "&sqft=" +
+          sqftNumber +
+          "&address=" +
+          address;
       } else {
         url = `https://api.formautomations.homes/api/condo/valuation?street=${roadName}&floorRange=${floorRange}&propertyType=${propertyType}&address=${address}&sqft=${sqftNumber}`;
       }
